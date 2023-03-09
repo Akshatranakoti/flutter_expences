@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import './transaction.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_expences/widgets/new_transaction.dart';
+import 'package:flutter_expences/widgets/transaction_list.dart';
+import 'package:flutter_expences/widgets/user_transacttion.dart';
+
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,20 +22,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 't1',
-      title: 'newshoes',
-      amount: 70.1,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'weekly grocery',
-      amount: 100,
-      date: DateTime.now(),
-    )
-  ];
+  // String? titleInput;
+  // String? amountInput;
 
   @override
   Widget build(BuildContext context) {
@@ -38,26 +31,22 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter app"),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.orange,
-                elevation: 9,
-                child: Text("Chart"),
+        body: SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.orange,
+                  elevation: 9,
+                  child: Text("Chart"),
+                ),
               ),
-            ),
-            Column(
-              children: transactions.map((tx) {
-                return Card(
-                  child: Text(tx.title.toString()),
-                );
-              }).toList(),
-            )
-          ],
+              UserTransaction(),
+            ],
+          ),
         ));
   }
 }
