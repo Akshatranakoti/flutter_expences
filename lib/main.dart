@@ -39,18 +39,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransaction = [
-    Transaction(
-      id: 't1',
-      title: 'newshoes',
-      amount: 100.1,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'weekly grocery',
-      amount: 100,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'newshoes',
+    //   amount: 100.1,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'weekly grocery',
+    //   amount: 100,
+    //   date: DateTime.now(),
+    // ),
   ];
   void _addNewTransaction(String txtitle, double txamount) {
     final newTx = Transaction(
@@ -108,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),
